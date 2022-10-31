@@ -1,6 +1,6 @@
 ﻿int[,] createnewarray()
 {
-    System.Console.WriteLine("Размеры матрицы");
+    System.Console.WriteLine("Размеры матрицы строка/столбец");
     
     int[,] ints = new int[int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine())];
     for (int i = 0; i< ints.GetLength(0); i++){
@@ -26,24 +26,24 @@ void PrintArray(int[,] array)
 PrintArray(array);
 System.Console.WriteLine();
 PrintArray(array2);
-int[,] matrixxmatsix(int[,] array, int [,] array2)
+int[,] matrixxmatrix(int[,] array, int [,] array2)
 {
     int[,] newarray =new int[array.GetLength(0),array2.GetLength(1)];
     if (array.GetLength(1)!= array2.GetLength(0)) System.Console.WriteLine("Умножение матриц невозможно");
     else 
     {
     for(int i = 0; i < array.GetLength(0); i++){
-        for(int j = 0; j < array.GetLength(1); j++)
-    {
-            for(int k = 0; k < array.GetLength(0); k++)
+        for(int j = 0; j < array2.GetLength(1); j++)
+        {
+            for(int k = 0; k < array.GetLength(1); k++)
             {
                 newarray[i,j] += array[i,k] * array2[k,j];
             }
-    }
+        }
     }
     }
     return newarray;
 }
 System.Console.WriteLine();
-int[,] newarray =  matrixxmatsix(array,array2);
+int[,] newarray =  matrixxmatrix(array,array2);
 PrintArray(newarray);
